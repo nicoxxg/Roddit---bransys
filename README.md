@@ -6,17 +6,24 @@ npm install
 ```
 
 ## download these dependencies
-```
+
 first
+```
 npm i --save @fortawesome/fontawesome-svg-core
+```
+
 second
+```
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/free-regular-svg-icons
 npm i --save @fortawesome/free-brands-svg-icons
-third
-npm i --save @fortawesome/vue-fontawesome@latest-3
 ```
 
+third
+
+```
+npm i --save @fortawesome/vue-fontawesome@latest-3
+```
 
 ### Compiles and hot-reloads for development
 ```
