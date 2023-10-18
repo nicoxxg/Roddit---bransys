@@ -4,8 +4,6 @@
     transition: 0.3s;
     cursor: pointer;
     align-items: center;
-    
-
 }
 .icon-edit{
     transition: 0.3s;
@@ -135,9 +133,18 @@
             </v-card-actions>
 
 
-            
+            <v-divider class="border-opacity-25" color="warning"></v-divider>
         </v-card>
-        <CommentsPost/>
+
+        <v-card
+        class="mx-auto mt-2 mb-2"
+        title="Comments:"
+        style="z-index: 0;"
+        :width="getResponsivewidth()"
+        >
+        <v-divider class="border-opacity-25" color="warning"></v-divider>
+        </v-card>
+        <CommentsPost class=" ma-3" />
 
     </v-container>
 

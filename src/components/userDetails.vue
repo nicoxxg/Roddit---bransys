@@ -1,18 +1,18 @@
 <template>
-    <div class="d-flex flex-wrap flex-row">
+    <div class="d-flex flex-row flex-wrap  flex-md-nowrap flex-lg-nowrap">
 
         <v-card
             v-if="user != undefined"
-            class="mx-auto my-12"
+            class="mx-auto my-12  ml-md-2"
             height="450"
-            :width="getResponsivewidth"
+            :width="getResponsiveCard()"
         >
             
 
             <v-card
                 cover
                 height="250"
-                :width="getResponsivewidth"
+                :width="getResponsiveCard()"
                 theme="dark"
                 class="d-flex flex-column justify-center align-center"
                 
@@ -53,7 +53,7 @@
 
         </v-card>
         <v-container v-if="posts != undefined && user != undefined">
-            <v-row class="justify-center flex-wrap">
+            <v-row class="justify-center " >
 
             <d-col
                 
@@ -64,7 +64,7 @@
                 v-for="post in posts"
                 :key="post.id"
             >
-                <v-card :width="getResponsivewidth()" class="ma-2 d-flex flex-column justify-center" v-bind:class="getResponsiveClass">
+                <v-card :width="getResponsivewidth()" class="ma-2 d-flex flex-column justify-center" v-bind:class="getResponsiveClass()">
                 <v-card-item>
                     <v-card-title class="title text-decoration-underline " @click="$router.push(`/post?=${post.id}`)" >{{ post.title }}</v-card-title>
                     <v-card-subtitle style="cursor: pointer; " class="hover-effect" @click="$router.push(`/user?=${post.userId}`)"> {{ user.username }} </v-card-subtitle>
@@ -86,6 +86,15 @@
 
 
 <style scoped>
+
+
+@media (max-width: 600px){
+    .flex-xs-wrap{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
 .hover-effect{
   transition: color 0.3s;
 }
@@ -149,13 +158,25 @@ export default{
         getResponsivewidth() {
             const screenWidth = window.innerWidth;
             if (screenWidth >= 1280) {
-                return "1000";
+                return "800";
             } else if (screenWidth >= 960) {
-                return "600";
+                return "350";
             } else if (screenWidth >= 600) {
-                return "400";
+                return "500";
             } else {
+                return "300";
+            }
+        },
+        getResponsiveCard() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth >= 1280) {
+                return "300";
+            } else if (screenWidth >= 960) {
                 return "200";
+            } else if (screenWidth >= 600) {
+                return "500";
+            } else {
+                return "300";
             }
         },
         getPostsByUserId(){

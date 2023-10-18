@@ -1,6 +1,7 @@
-<template v-if="comments != undefined">
+<template v-if="comments != undefined" class="d-flex flex-column justify-center align-center">
+        
         <v-card
-            class="mx-auto rounded-0"
+            class="mx-auto rounded-0 mb-2" 
             theme="#E0E0E0"
             :width="getResponsivewidth()"
 
