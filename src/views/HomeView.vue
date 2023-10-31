@@ -25,11 +25,11 @@
         v-for="post in posts"
         :key="post.id"
       >
-        <v-card :width="getResponsivewidth()" class="ma-2 d-flex flex-column justify-center" v-bind:class="getResponsiveClass">
+        <v-card  :width="getResponsivewidth()" class="ma-2 d-flex flex-column justify-center" v-bind:class="getResponsiveClass">
           <v-card-item>
-            <v-card-title class="title text-decoration-underline " @click="$router.push(`/post?=${post.id}`)" >{{ post.title }}</v-card-title>
-            <v-card-subtitle style="cursor: pointer; " class="hover-effect" @click="$router.push(`/user?=${post.userId}`)"> {{  getUserName(post.userId) }} </v-card-subtitle>
-          </v-card-item> 
+            <v-card-title class="title text-decoration-underline "  @click="$router.push(`/post?=${post.id}`)" >{{ post.title }}</v-card-title>
+            <v-card-subtitle style="cursor: pointer; " class="hover-effect" @click="$router.push(`/user/${post.userId}`)"> {{  getUserName(post.userId) }} </v-card-subtitle>
+          </v-card-item>
           <v-card-text class="description text-decoration-underline"  @click="$router.push(`/post?=${post.id}`)">
             {{ post.body }}
           </v-card-text>
@@ -69,7 +69,6 @@
 
 import submitPost from '@/components/posts.vue';
 
-
 export default{
   name: 'HomeView',
 
@@ -80,6 +79,9 @@ export default{
       posts: [],
       users: {},
     };
+  },
+  created(){
+
   },
   methods: {
     agregarPost(newPost) {
@@ -107,6 +109,7 @@ export default{
           acc[user.id] = user.username;
           return acc;
         }, {});
+        
       });
   },
   getUserName(userId) {

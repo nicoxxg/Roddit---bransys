@@ -10,11 +10,7 @@
       </div>
       
       
-     
       <v-spacer></v-spacer>
-
-     
-
       
       
       <v-app-bar-nav-icon :color="drawer == true ? 'orange-accent-4' : 'black'" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -63,21 +59,18 @@ export default {
             return window.innerWidth <= 1024;
         },
   },
+  updated(){
+
+  },
+  created(){
+
+  },
   mounted(){
         
   },
   methods:{
 
     
-    
-    onClickLoading () {
-        this.loading = true
-
-        setTimeout(() => {
-          this.loading = false
-          this.loaded = true
-        }, 2000)
-      },
   },
 
   components: {
